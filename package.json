@@ -1,0 +1,26 @@
+{
+  "name": "weekend_challenge_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetsyRowley/weekendChallenge3.git"
+  },
+  "author": "Betsy Rowley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetsyRowley/weekendChallenge3/issues"
+  },
+  "homepage": "https://github.com/BetsyRowley/weekendChallenge3#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jquery": "^3.2.1",
+    "pg": "^6.1.5"
+  }
+}
