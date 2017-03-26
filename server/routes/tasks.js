@@ -36,7 +36,7 @@ router.get("/", function(req, res) {
 
 //POST response
 router.post("/add", function(req, res) {
-  console.log(req.body);
+  //console.log(req.body);
   var description = req.body.description;
   pool.connect(function(errorConnectingToDatabase, db, done) {
     if(errorConnectingToDatabase) {
@@ -84,7 +84,6 @@ router.delete("/delete/:id", function(req, res) {
 
 //PUT request, update db
 router.put("/update/:id", function(req, res) {
-  console.log(req.body);
   pool.connect(function(errorConnectingToDatabase, db, done) {
     if(errorConnectingToDatabase) {
       console.log("Error connecting to the database");
