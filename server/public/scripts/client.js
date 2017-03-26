@@ -21,11 +21,10 @@ $("form").on("submit", function(event) {
 }); //ends event handler
 
 //creates event listener & deletes task ajax DELETE
-$("#tasks").on("click", ".delete", function() {
+$(".tasks").on("click", ".delete", function() {
     var id = $(this).data("task");
     var verify = confirm("Are you sure you want to delete this task?");
         if(verify) {
-          console.log("Deleting task " + id);
           $.ajax({
             type: "DELETE",
             url: "/tasks/delete/" + id,
@@ -38,6 +37,28 @@ $("#tasks").on("click", ".delete", function() {
 }); //ends event handler
 
 
+//event listener for Complete button
+$(".tasks").on("click", ".update", function() {
+  var id = $(this).data("task");
+  //change class to Complete
+  var update =$(this).parent().parent();
+  update.addClass("complete").data("done", "true");
+  //console.log(update.data("done"));
+  //send ajax PUT request to update "completed"
+  if(update.data("done")) {
+    //console.log("updating " + id);
+    $.ajax({
+      type: "PUT",
+      url: "/tasks/update/" + id,
+      //data: {},
+      success: function(repsonse) {
+        showTasks();
+      }
+    }); //ends ajax PUT request
+  } //ends if statement
+});//ends event listener
+
+
 }); //end document ready
 
 
@@ -48,15 +69,17 @@ function showTasks() {
     url: "/tasks",
     success: function(response) {
       console.log(response);
-      $("#tasks").empty();
+      $(".tasks").empty();
       for(var i = 0; i < response.length; i++) {
         var task = response[i];
-        $("#tasks").append("<tr></tr>");
-        var $el = $("#tasks").children().last();
+        $(".tasks").append("<tr class = 'uncomplete'></tr>");
+        var $el = $(".tasks").children().last();
         $el.append("<td>" + (i + 1) + "</td>");
         $el.append("<td>" + task.description + "</td>");
         $el.append("<td>" + task.completed + "</td>");
-        $el.append("<td><button>Complete</button></td>");
+        //$el.append("<td><input type ='checkbox'></td>");
+        $el.append("<td><button class = 'update' data-task =" +
+                        task.id + ">Completed</button></td>");
         $el.append("<td><button class = 'delete' data-task ="  +
             task.id + ">Delete</button></td>");
       } //ends for loop

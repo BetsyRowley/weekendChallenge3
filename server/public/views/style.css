@@ -6,18 +6,32 @@ h1 {
   text-align: center;
 }
 
+p, form {
+  display: inline-block;
+  margin: 20px;
+}
+
+p {
+  font-size: 25px;
+}
+
 .taskList {
   margin: 50px;
 }
 
 th, td {
-  padding: 30px;
+  padding: 10px 30px;
 }
 
 thead {
   background-color: DarkSlateGray;
+  font-size: 25px;
 }
 
-#tasks tr {
+.uncomplete {
   background-color: DarkCyan;
+}
+
+.complete {
+  background-color: MediumOrchid;
 }
