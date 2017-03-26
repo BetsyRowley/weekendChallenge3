@@ -1,0 +1,23 @@
+body {
+  background-color: CornflowerBlue;
+}
+
+h1 {
+  text-align: center;
+}
+
+.taskList {
+  margin: 50px;
+}
+
+th, td {
+  padding: 30px;
+}
+
+thead {
+  background-color: DarkSlateGray;
+}
+
+#tasks tr {
+  background-color: DarkCyan;
+}

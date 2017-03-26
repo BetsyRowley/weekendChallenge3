@@ -22,17 +22,19 @@ $("form").on("submit", function(event) {
 
 //creates event listener & deletes task ajax DELETE
 $("#tasks").on("click", ".delete", function() {
-    //confirm("Are you sure you want to delete this task?");
     var id = $(this).data("task");
-    console.log("Deleting task " + id);
-    $.ajax({
-      type: "DELETE",
-      url: "/tasks/delete/" + id,
-      success: function(response) {
-        console.log("Deletes " + id);
-        showTasks();
-      }
-    }); //ends ajax DELETE request
+    var verify = confirm("Are you sure you want to delete this task?");
+        if(verify) {
+          console.log("Deleting task " + id);
+          $.ajax({
+            type: "DELETE",
+            url: "/tasks/delete/" + id,
+            success: function(response) {
+              console.log("Deletes " + id);
+              showTasks();
+            }
+          }); //ends ajax DELETE request
+        } //ends if statement
 }); //ends event handler
 
 

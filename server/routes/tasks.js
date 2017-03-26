@@ -65,7 +65,7 @@ router.delete("/delete/:id", function(req, res) {
       console.log("Error connecting to the database");
       res.send(500);
     } else {
-      db.query('DELETE FROM "tasks" WHERE "id" = $1;', [req.body.id], //params?
+      db.query('DELETE FROM "tasks" WHERE "id" = $1;', [req.params.id],
         function(queryError, result) {
           done();
           //console.log("query received");
