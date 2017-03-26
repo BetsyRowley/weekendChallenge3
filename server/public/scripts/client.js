@@ -20,6 +20,20 @@ $("form").on("submit", function(event) {
     $("#description").val("");
 }); //ends event handler
 
+//creates event listener & deletes task ajax DELETE
+$("#tasks").on("click", ".delete", function() {
+    var id = $(this).data("task");
+    console.log("Deleting task " + id);
+    $.ajax({
+      type: "DELETE",
+      url: "/tasks/delete/" + id,
+      success: function(response) {
+        console.log("Deletes " + id);
+        showTasks();
+      }
+    }); //ends ajax DELETE request
+}); //ends event handler
+
 
 }); //end document ready
 
@@ -40,7 +54,8 @@ function showTasks() {
         $el.append("<td>" + task.description + "</td>");
         $el.append("<td>" + task.completed + "</td>");
         $el.append("<td><button>Complete</button></td>");
-        $el.append("<td><button>Delete</button></td>");
+        $el.append("<td><button class = 'delete' data-task ="  +
+            task.id + ">Delete</button></td>");
       } //ends for loop
     } //ends success function
   }); //ends ajax request

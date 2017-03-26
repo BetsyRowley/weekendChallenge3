@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
       console.log("Error connecting to the database");
       res.send(500);
     } else {
-      db.query('SELECT * FROM "tasks" ORDER BY "id" ASC;',
+      db.query('SELECT * FROM "tasks" ORDER BY "completed" DESC, "id" ASC;',
         function(queryError, result) {
           done();
           if(queryError) {
@@ -55,6 +55,28 @@ router.post("/add", function(req, res) {
         });
     } //end of else
   }); //end pool
-}); //end of get response
+}); //end of POST response
+
+//DELETE request
+router.delete("/delete/:id", function(req, res) {
+  //console.log(req.body);
+  pool.connect(function(errorConnectingToDatabase, db, done) {
+    if(errorConnectingToDatabase) {
+      console.log("Error connecting to the database");
+      res.send(500);
+    } else {
+      db.query('DELETE FROM "tasks" WHERE "id" = $1;', [req.body.id], //params?
+        function(queryError, result) {
+          done();
+          if(queryError) {
+            console.log("Error making query.");
+            res.send(500);
+          } else {
+            res.sendStatus(200);
+          }
+        });
+    } //end of else
+  }); //end pool
+}); //end of DELETE response
 
 module.exports = router;
