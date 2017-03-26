@@ -1,8 +1,8 @@
 --creates the task table
 CREATE TABLE "tasks" (
 	id SERIAL PRIMARY KEY,
-	"description" VARCHAR(100),
-	"completed" BOOLEAN
+	"description" VARCHAR(100) NOT NULL,
+	"completed" BOOLEAN DEFAULT false
 );
 
 --Use for adding new task (POST request)

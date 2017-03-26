@@ -33,4 +33,28 @@ router.get("/", function(req, res) {
   }); //end pool
 }); //end of get response
 
+
+//POST response
+router.post("/add", function(req, res) {
+  console.log(req.body);
+  var description = req.body.description;
+  pool.connect(function(errorConnectingToDatabase, db, done) {
+    if(errorConnectingToDatabase) {
+      console.log("Error connecting to the database");
+      res.send(500);
+    } else {
+      db.query('INSERT INTO "tasks" ("description") VALUES ($1);',
+        [description], function(queryError, result) {
+          done();
+          if(queryError) {
+            console.log("Error making query.");
+            res.send(500);
+          } else {
+            res.sendStatus(201);
+          }
+        });
+    } //end of else
+  }); //end pool
+}); //end of get response
+
 module.exports = router;

@@ -3,6 +3,24 @@ $(document).ready(function() {
 
 showTasks();
 
+//adds new tasks - ajax POST
+$("form").on("submit", function(event) {
+    event.preventDefault();
+    // console.log("submit clicked");
+    $.ajax({
+        type: "POST",
+        url: "/tasks/add",
+        data: {description: $("#description").val()},
+        success: function(response) {
+          //Refresh task list on DOM
+          //console.log(response);
+          showTasks();
+        }
+    }); //ends POST request
+    $("#description").val("");
+}); //ends event handler
+
+
 }); //end document ready
 
 

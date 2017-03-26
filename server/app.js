@@ -9,6 +9,8 @@ app.use(express.static("server/public", {
   index: "views/index.html"
 }));
 
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use("/tasks", tasks);
 
 app.listen(port, function() {
