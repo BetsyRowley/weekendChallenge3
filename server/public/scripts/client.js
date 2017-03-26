@@ -22,6 +22,7 @@ $("form").on("submit", function(event) {
 
 //creates event listener & deletes task ajax DELETE
 $("#tasks").on("click", ".delete", function() {
+    //confirm("Are you sure you want to delete this task?");
     var id = $(this).data("task");
     console.log("Deleting task " + id);
     $.ajax({

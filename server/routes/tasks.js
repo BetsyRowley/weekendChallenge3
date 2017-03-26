@@ -68,10 +68,12 @@ router.delete("/delete/:id", function(req, res) {
       db.query('DELETE FROM "tasks" WHERE "id" = $1;', [req.body.id], //params?
         function(queryError, result) {
           done();
+          //console.log("query received");
           if(queryError) {
             console.log("Error making query.");
             res.send(500);
           } else {
+            //console.log("receives db query");
             res.sendStatus(200);
           }
         });
