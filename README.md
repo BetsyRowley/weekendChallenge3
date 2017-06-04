@@ -78,5 +78,4 @@ localhost:8000
 
 ## Acknowledgments
 
-* Prime Digital Academy Instructor Kris Dszafranski for providing the Passport Code Base.
 * Prime Digital Academy Instructors Chris Black and Scott Bromander for their on-going support.
