@@ -2,20 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-quiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weekend ToDo List</title>
     <script type="text/javascript" src = "vendors/jquery.js"></script>
     <script type="text/javascript" src = "scripts/client.js"></script>
+    <link rel="stylesheet" href="vendors/css/bootstrap.css">
     <link rel="stylesheet" href = "views/style.css">
   </head>
   <body>
+    <div class="container">
     <h1>Weekend To-Do List</h1>
 
     <p>Need to add more to the list?</p>
-    <form>
-      Enter Task Description: <input type="text" name = "description" id = "description">
-      <input type="submit" value="Add Task" id = "addTask">
+    <form class = "form-inline">
+        <div class="form-group">
+          <label for ="taskInput" class = "sr-only"> Enter Task Description: </label>
+          <input type="text" name = "description" id = "description"
+                  class = "form-control"
+                  placeholder = "Enter task description">
+        </div>
+        <button type="submit" class = "btn btn-defualt"
+                id = "addTask">Add Task
+        </button>
     </form>
-
     <div class="taskList">
         <table>
           <thead>
@@ -34,5 +44,7 @@
         </table>
 
     </div>
+    </div>
+    <script type="text/javascript" src = "vendors/js/bootstrap.js"></script>
   </body>
 </html>
