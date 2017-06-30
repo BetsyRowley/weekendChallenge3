@@ -15,17 +15,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 You will need to have the following software installed.
 
-```
-Node.js (https://nodejs.org/en/)
-```
+[Node.js](https://nodejs.org/en/)
 
-```
-PostgreSql (https://launchschool.com/blog/how-to-install-postgresql-on-a-mac)
-```
+[PostgreSql](https://launchschool.com/blog/how-to-install-postgresql-on-a-mac)
 
-```
-Postico (https://eggerapps.at/postico/)
-```
+[Postico](https://eggerapps.at/postico/)
 
 ### Installing
 
